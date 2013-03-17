@@ -50,7 +50,7 @@ NetworkParams::NetworkParams(Params* params)
 }
 
 
-NetworkParams::~NetworkParams(void)
+NetworkParams::~NetworkParams()
 {
 	for(int i = 0; i < hiddenLayers - 1; i++)
 	{
