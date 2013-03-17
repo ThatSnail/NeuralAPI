@@ -14,11 +14,11 @@ int main()
 	Pool* pool = new Pool();
 
 	Params params = Params();
-	params.poolSize = 128;
-	params.hiddenLayers = 4;
-	params.hiddenNodes = 4;
-	params.inputNodes = 2;
-	params.outputNodes = 2;
+	params.poolSize = 1;
+	params.hiddenLayers = 1;
+	params.hiddenNodes = 1;
+	params.inputNodes = 1;
+	params.outputNodes = 1;
 	params.maxWeight = 1;
 
 	pool->init(params);

@@ -16,7 +16,7 @@ private:
 public:
 	NetworkParams();
 	NetworkParams(Params* params);
-	~NetworkParams(void);
+	~NetworkParams();
 
 	float** inputWeightArray;
 	float** outputWeightArray;

@@ -5,7 +5,7 @@
 class PoolResult
 {
 public:
-	NetworkParams networkParams;
+	NetworkParams* networkParams;
 	float error;
 
 	PoolResult(void);

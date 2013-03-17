@@ -18,19 +18,18 @@ Pool::~Pool()
 void Pool::init(Params params)
 {
 	// clear pool
-	/*
 	for(int i = 0; i < pool.size(); i++)
 	{
 		delete pool.at(i);
 	}
 	pool.clear();
-	*/
 
 	// reinitialize pool
 	for(int i = 0; i < params.poolSize; i++)
 	{
 		// make a bunch of neural networks with weights initialized to a random number from -maxWeight to maxWeight
-		NetworkParams* networkParams = new NetworkParams(&params);
+		Params* newParams = new Params(params);
+		NetworkParams* networkParams = new NetworkParams(newParams);
 		NeuralNetwork* neuralNetwork = new NeuralNetwork(networkParams);
 		pool.push_back(neuralNetwork);
 	}
@@ -53,7 +52,7 @@ PoolResult Pool::run()
 		}
 	}
 	PoolResult poolResult = PoolResult();
-	poolResult.networkParams = *minParams;
+	poolResult.networkParams = minParams;
 	poolResult.error = minError;
 
 	return poolResult;
