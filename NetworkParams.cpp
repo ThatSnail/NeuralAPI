@@ -10,8 +10,8 @@ NetworkParams::NetworkParams(Params* params)
 	hiddenLayers = params->hiddenLayers;
 	hiddenNodes = params->hiddenNodes;
 	maxWeight = params->maxWeight;
-	inputNodes = params->inputNodes;
-	outputNodes = params->outputNodes;
+	vInputs = params->vInputs;
+	vOutputs = params->vOutputs;
 
 	// initialize weights with 0
 	weightArray = new float**[hiddenLayers - 1];
@@ -28,8 +28,8 @@ NetworkParams::NetworkParams(Params* params)
 		}
 	}
 
-	inputWeightArray = new float*[inputNodes];
-	for(int j = 0; j < inputNodes; j++)
+	inputWeightArray = new float*[vInputs->size()];
+	for(int j = 0; j < vInputs->size(); j++)
 	{
 		inputWeightArray[j] = new float[hiddenNodes];
 		for(int k = 0; k < hiddenNodes; k++)
@@ -41,8 +41,8 @@ NetworkParams::NetworkParams(Params* params)
 	outputWeightArray = new float*[hiddenNodes];
 	for(int j = 0; j < hiddenNodes; j++)
 	{
-		outputWeightArray[j] = new float[outputNodes];
-		for(int k = 0; k < outputNodes; k++)
+		outputWeightArray[j] = new float[vOutputs->size()];
+		for(int k = 0; k < vOutputs->size(); k++)
 		{
 			outputWeightArray[j][k] = (float)(rand() % (int)pow((float)10, PRECISION)) * maxWeight * 2 / pow((float)10, PRECISION) - maxWeight;
 		}

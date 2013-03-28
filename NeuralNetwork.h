@@ -6,6 +6,8 @@
 
 using namespace std;
 class Neuron;
+class NetworkParams;
+class InputNeuron;
 
 class NeuralNetwork
 {
@@ -16,6 +18,8 @@ public:
 	~NeuralNetwork();
 
 	NetworkParams* networkParams;
+	void initNeurons();
+	void runNetwork();
 
 	float getError();
 };

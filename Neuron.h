@@ -2,28 +2,29 @@
 
 #include <vector>
 #include "ActionPotential.h"
-#include "NeuralNetwork.h"
 
 using namespace std;
 
+class InputNeuron;
 class ActionPotential;
-class NeuralNetwork;
+
+class OutputNeuron;
 
 class Neuron
 {
-private:
-	vector<ActionPotential> vInputs;
-	vector<Neuron*> vChildren;
+protected:
 	float threshold;
-	float output;
 	float activationFunction(float sum);
 
 public:
 	Neuron(void);
 	~Neuron(void);
 
-	void fire(vector<Neuron*>* vStack);
+	float output;
 
-	void initChildren(NeuralNetwork* network);
+	vector<ActionPotential*>* vInputs;
+	vector<Neuron*>* vChildren;
+
+	virtual void fire(vector<Neuron*>* vStack);
 };
 

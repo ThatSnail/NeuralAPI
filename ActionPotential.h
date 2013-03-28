@@ -3,6 +3,8 @@
 #include "Neuron.h"
 
 class Neuron;
+class InputNeuron;
+class OutputNeuron;
 
 class ActionPotential
 {

@@ -1,5 +1,6 @@
 #include "Pool.h"
 #include "NetworkResult.h"
+#include <opencv2\highgui\highgui.hpp>
 
 Pool::Pool()
 {
@@ -31,6 +32,7 @@ void Pool::init(Params params)
 		Params* newParams = new Params(params);
 		NetworkParams* networkParams = new NetworkParams(newParams);
 		NeuralNetwork* neuralNetwork = new NeuralNetwork(networkParams);
+		neuralNetwork->initNeurons();
 		pool.push_back(neuralNetwork);
 	}
 }
